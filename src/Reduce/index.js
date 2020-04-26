@@ -84,3 +84,16 @@ const mergeAddress = (data, keyParam) => {
 
 console.log(mergeAddress(formData, 'billing_address'));
 console.log(mergeAddress(formData, 'shipping_address'));
+
+// reduce using functions
+function add(value) { return value + 1}
+function subtract(value) { return value - 2}
+function double(value) { return value * 2 }
+
+const pipe = [add, subtract, double];
+
+const resultPipe = pipe.reduce((total, fn) => {
+    return fn(total)
+}, 10)
+
+console.log(resultPipe);
