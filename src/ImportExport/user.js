@@ -2,11 +2,11 @@
 // export variables/objects/functions
 
 
-export const user = {
+const user = {
     name: 'Marcin'
 }
 
-export const introduction = () => {
+const introduction = () => {
     console.log('Hello!')
 }
 
@@ -14,5 +14,17 @@ const User = {
     name: 'Marcin'
 }
 
-// only one default export for file
+// // only one default export for file
 export default User;
+
+// choose what you want export
+export default {
+    user: user2,
+    introduction // the same name
+}
+
+// browser as node
+// import Vue from 'vue' & const vue = require('vue');
+// import/export -> browsers (node from 13)
+// require -> node 
+
