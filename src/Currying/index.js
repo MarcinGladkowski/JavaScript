@@ -1,6 +1,10 @@
+const R = require('ramda');
+
+// Currying - connect functions with one argument
+
 // simple resolve
-function multiply(value, multiplier) {
-    return value * multiplier
+function multiply(multiplier, value) {
+    return multiplier * value
 }
 
 const numbers = [44, 3, 22, 12]
@@ -35,3 +39,26 @@ const unaryCarrying = (x) => (y) => x + y;
 
 // Ramda library
 // install ramda - https://www.npmjs.com/package/ramda in this directory
+
+// Currying (strict/loose)
+const curriedMultiply = R.curry(multiply); 
+let curryingResult = numbers.map(curriedMultiply(2));
+
+console.log(curryingResult);
+
+const bookshelf = [
+    { title: 'Total Recall', pages: 656, genre: 'biography'},
+    { title: 'Sapiens', pages: 498, genre: 'business'},
+]
+
+
+const hasProperty = R.curry((property, value, obj) => obj[property] === value);
+const getProperty = R.curry((property, obj) => obj[property]);
+
+const getBusiness = (list) => list.filter(hasProperty('genre', 'business'));
+const getPages = (list) => list.map(getProperty('pages'));
+const countPages = (book) => book.reduce((acc, pages) => acc + pages);
+
+
+const pipeResult = R.pipe(getBusiness, getPages, countPages)(bookshelf);
+console.log(pipeResult);
