@@ -1,2 +1,2 @@
-node_bash:
+run:
 	docker-compose run --rm node bash
