@@ -1,4 +1,6 @@
 `
+Source: https://bulldogjob.pl/news/1111-ulepsz-swoj-kod-z-javascript-set
+
 Usage of SET:
 - elements are indexed by specific key, not like in array as numeric key
 - elements must be unique
