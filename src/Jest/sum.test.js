@@ -1,4 +1,3 @@
-const { TestScheduler } = require('jest')
 import {sum } from './sum'; 
 
 test('add 2 and 4', () => {
