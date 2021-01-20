@@ -68,3 +68,35 @@ console.log('\n')
   */
  console.log(/Medi[a-zA-Z]*/.exec('zdMedium')) // match as Medium but starts with 'zd'
  console.log(/^Medi[a-zA-Z]*/.exec('zdMedium')) // don't match
+
+
+ console.log(/Medium/.exec('mmMediummm')) // match
+ console.log(/Medium$/.exec('Mediummm')) // don't match
+
+
+ console.log('\nQuantifiers\n')
+/**
+ * Quantifiers {} - how many times, instead of using *
+ */
+console.log(/m{2}/.exec('mm'))
+console.log(/m{2}/.exec('mmmm')) // match only mm
+
+
+console.log('\nQuantifiers\n')
+/**
+ * Character classes: cheetsheet https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet
+ * \w \d etc
+ */
+
+console.log('\nEscapes\n')
+/** 
+ * How find for example * (not use as special sign *)
+ * We have to use a character '\' to escape it
+ */
+console.log(/\*/.exec('special*'))
+
+
+
+/** 
+ * Describe a functions using with Regex in JavaScript
+ */
