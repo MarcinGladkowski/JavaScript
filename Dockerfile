@@ -1,3 +1,3 @@
 FROM node:latest
 
-RUN npm install -g http-server
+RUN npm install -g http-server nodemon
