@@ -3,11 +3,11 @@ GET http://172.18.0.2:8080/
 
 ### Needs authorization
 GET http://172.18.0.2:8080/api/users
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjExODEzNjY3LCJleHAiOjE2MTE4MTM2ODd9.OEAx5fA_ZOBbcfaYAcsV-OkP5uZyHkx0LwGbbv7EU7U
+# Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjExODEzNjY3LCJleHAiOjE2MTE4MTM2ODd9.OEAx5fA_ZOBbcfaYAcsV-OkP5uZyHkx0LwGbbv7EU7U
 
 ###
 POST http://172.18.0.2:8080/api/auth/login
-Content-Type: "application/json"
+Content-Type: application/json
 
 {
     "email": "marcinemail@somepost.com",
@@ -15,9 +15,9 @@ Content-Type: "application/json"
 }
 
 ###
-POST http://localhost:8080/api/auth/refresh
-Content-Type: "application/json"
+POST http://172.18.0.2:8080/api/auth/refresh
+Content-Type: application/json
 
 {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjExODE0MTYwLCJleHAiOjE2MTIzMzk3NjB9.QL2i0nuMxxAaIZQ9tgnrVaORzlyR_u8B9oVKvCI6iTI"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjExOTQ4NTQzLCJleHAiOjE2MTI0NzQxNDN9.T7ws9t5xk4_wd3WVkxHmlBkMhEeFkqa6WfK_TslVL8Q"
 }
