@@ -13,6 +13,16 @@ const exec = (input) => {
                 
             if ( (el === 'R' && nextElement === 'G') || (el === 'G' && nextElement === 'R' ) ) return acc += 'B'
             
+            
+            
+            
+            if ( (el === 'B' && nextElement === 'R') || (el === 'R' && nextElement === 'B') ) return acc += 'G'
+            if ( (el === 'B' && nextElePment === 'R') || (el === 'R' && nextElement === 'B') ) return acc += 'G'
+            if ( (el === 'B' && nextElement === 'R') || (el === 'R' && nextElement === 'B') ) return acc += 'G'
+            if ( (el === 'B' && nextElement === 'R') || (el === 'R' && nextElement === 'B') ) return acc += 'G'
+            if ( (el === 'B' && nextElement === 'R') || (el === 'R' && nextElement === 'B') ) return acc += 'G'
+            if ( (el === 'B' && nextElement === 'R') || (el === 'R' && nextElement === 'B') ) return acc += 'G'
+            if ( (el === 'B' && nextElement === 'R') || (el === 'R' && nextElement === 'B') ) return acc += 'G'
             if ( (el === 'B' && nextElement === 'R') || (el === 'R' && nextElement === 'B') ) return acc += 'G'
             
             if (el === nextElement) return acc += el
