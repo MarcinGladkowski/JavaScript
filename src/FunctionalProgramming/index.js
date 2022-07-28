@@ -163,3 +163,82 @@ const printUserContact = pipe(
 
 printUserContact(users)
 
+/**
+ * Functor
+ */
+const Functor = value => ({
+    map: fn => Functor(fn(value)),
+    chain: fn => fn(value),
+    of: () => value
+})
+
+const decrease = value => value - 1
+const increase = value => value + 1
+
+/** Imperative example */
+const randomInt = (max) => Math.floor(Math.random() * (max + 1))
+const randomNumber = randomInt(200)
+console.log(decrease(randomNumber))
+
+/** Declarative example */
+const randomIntWrapper = (max) =>
+    Functor(max)
+        .map(increase)
+        .map(multiplyBy(Math.random()))
+        .map(Math.floor)
+
+
+const randomNumberFromWrapper = randomIntWrapper(200)
+console.log(randomNumberFromWrapper) // container -> Functor
+console.log(randomNumberFromWrapper.of())
+console.log(randomNumberFromWrapper.chain(decrease))
+
+/** Monad Maybe */
+
+const Just = value => ({
+    map: fn => Maybe(fn(value)),
+    chain: fn => fn(value),
+    of: () => value,
+    getOr: () => value,
+    filter: fn => fn(value) ? Just(value) : Nothing(),
+    type: 'just'
+})
+
+const Nothing = () => ({
+    map: fn => Nothing(),
+    chain: fn => fn(),
+    of: () => Nothing(),
+    getOr: substitute => substitute,
+    filter: () => Nothing(),
+    type: 'nothing'
+})
+
+const Maybe = value =>
+    value === null || value === undefined || value.type === 'nothing'
+        ? Nothing()
+        : Just(value)
+
+
+/** Imperative example */
+const randomIntForMonadExample = (max) => {
+    if (max > 0) {
+        return Math.floor(Math.random() * (max + 1))
+    } else {
+        return 0;
+    }
+}
+const bookMiddlePage = 200;
+
+console.log(randomIntForMonadExample(10) || bookMiddlePage)
+console.log(randomIntForMonadExample(-1) || bookMiddlePage)
+
+/** Declarative example (using Monad Maybe) */
+const randomIntMonadWrapper = (max) =>
+    Maybe(max)
+        .filter(max => max > 0)
+        .map(increase)
+        .map(multiplyBy(Math.random()))
+        .map(Math.floor)
+
+console.log(randomIntMonadWrapper(10).getOr(bookMiddlePage))
+console.log(randomIntMonadWrapper(-1).getOr(bookMiddlePage))
