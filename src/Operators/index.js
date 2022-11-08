@@ -1,7 +1,7 @@
 /** Operators && and || */
 
 /**
- * All values are truthy besides falsy values like
+ * [Falsy] All values are truthy besides falsy values like
  * - null
  * - undefined
  * - 0
