@@ -16,3 +16,5 @@ const JSON = {
 const JavascriptObject = {
     name: 'Marcin'
 }
+
+

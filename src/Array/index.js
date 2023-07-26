@@ -5,9 +5,10 @@ import fetch from 'node-fetch'
 * array.some() -> if some elemens compare
 * array.find() -> element or undefined, returns only one element
 * array.filter() -> returns new array
-* array.findIndex() -> get callback
-* array.indexOf()
+* array.findIndex() -> get callback, works on list of objects
+* array.indexOf() -> additional parameters like - search index from 
 * array.reduce()
+* array.lastIndexOf()  -> search from end of array
 `
 
 async function getRickandMortyCharacters() {
